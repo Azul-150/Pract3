@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-image: linear-gradient(to right, #3d8a5a, #124453);
+        }
+        h1{
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            color: rgb(6, 5, 97);
+            font-size: 40px;
+            text-align: center;
+            box-shadow: 5px 5px 3px #81f003;
+        }
+        nav {
+             background-color: #3a3434;
+             text-align: center;
+        }
+        nav ul {
+             list-style: none;
+             margin: 0;
+             padding: 0;
+        }
+        nav li {
+             margin-right: 20px;
+        }
+        nav a {
+             color: #fff;
+             text-decoration: none;
+             transition: color 0.2s;
+            border-collapse: collapse;
+        }
+        th, td {
+			border: 2px solid #7a5096;
+			padding: 10px;
+			text-align: center;
+		}
+		th {
+			background-color: rgba(1, 178, 304, 0.5);
+			font-family:Verdana, Geneva, Tahoma, sans-serif; 
+		}
+		
+		td {
+			background-color: #f2f2f2;
+			font-family: Times New Roman Italic, serif; 
+		}
+		table:hover {
+			box-shadow: 0 0 10px rgba(190, 149, 11, 0.9);
+		}
+          .Ace{
+        background-size: cover;
+        background-position: center;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: rgb(58, 187, 26);
+        }
+        .Shanks{
+         font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+         font-size: 25px;
+         line-height: 1.5;
+        }
+        .Sabo{
+        background-size: cover;
+        background-position: center;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: rgb(151, 85, 85);
+        }
+        .Mihawk{
+         font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+         font-size: 25px;
+         line-height: 1.5;
+        }
+        .Luffy{
+        background-size: cover;
+        background-position: center;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: rgb(26, 212, 203);
+        }
+        .Kuma{
+         font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+         font-size: 25px;
+         line-height: 1.5;
+        }
+        .Rosinante{
+        background-size: cover;
+        background-position: center;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: rgb(103, 108, 173);
+        }
+        .Law{
+         font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+         font-size: 25px;
+         line-height: 1.5;
+        }
+        .Robin{
+        background-size: cover;
+        background-position: center;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: rgb(197, 112, 55);
+        }
+        .Nami{
+         font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+         font-size: 25px;
+         line-height: 1.5;
+        }
+        .Yamato{
+        background-size: cover;
+        background-position: center;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: rgb(240, 110, 110);
+        }
+        .Katakuri{
+         font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+         font-size: 25px;
+         line-height: 1.5;
+        }
+        .Suo{
+            width: 100%;
+            height: 100%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>SUBNETEO</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="Gon.html">Formulario</a></li>
+            <li><a href="#¿Que es subneteo?">¿Que es el Subneteo?</a></li>
+            <li><a href="#Pasos">Pasos para realizar el Subneteo</a></li>
+            <li><a href="#Subred">Determinar a que subred pertenece una direccion IP</a></li>
+            <li><a href="#Direccion-IP">Determinar cual es la direccion IP que le corresponde a un numero de hosts en específico</a></li>
+            <li><a href="#Adicional">Recursos Adicionales</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="subneteo">
+           <h2>¿Qué es subneteo?</h2>
+            <div class="Ace">
+                <p class="Shanks">
+                    El Subneteo, también conocido como Subnetting, tiene la función de dividir una red IP física en subredes lógicas (redes más pequeñas). Cada una de estas trabaja a nivel de envío y recepción de paquetes como una red individual, aunque todas pertenezcan a la misma red física y al mismo dominio.
+                </p>
+                <div class="Suo">
+                    <img src="Subneteo.png" alt="Imagen de subneteo">
+                </div>
+            </div>
+        </article>
+    </section>
+        <section id="Pasos">
+            <article>
+            <h2>Pasos para realizar el Subneteo</h2>
+            <div class="Sabo">
+                <p class="Mihawk">Ejemplo a utilizar:192.168.3.0 con 4 subredes (Clase B) </p>
+                <ul>
+                    <li><strong>Paso 1:</strong> Ocupamos la fórmula:</li>
+                    <table>
+                        <tr>
+                            <td>2n   > =  No.Subredes</td>
+                        </tr>
+                    </table>
+                    <p>En este caso:</p>
+                    <table>
+                        <tr>
+                            <td> 2n  >= 4</td>
+                        </tr>
+                    </table>
+                    <li><strong>Paso 2:</strong>  El valor obtenido en n indicará los bits que tomaremos para generar nuestras subredes</li>
+                    <table>
+                        <tr>
+                            <th>Mascara de Subred</th>
+                            <th>Binario</th>
+                            <th>Bits tomados</th>         
+                            <th>Decimal</th>          
+                        </tr>
+                        <tr>
+                            <td>255.255.255.0</td>
+                            <td>11111111.11111111.11111111.00000000</td>
+                            <td>11111111.11111111.11111111.11000000</td>
+                            <td>255.255.255.192</td>
+                        </tr>
+                    </table>
+                    <li><strong>Paso 3:</strong> El valor obtenido al robar los bits, lo ocuparemos:
+                    <p><strong>256-192=64</strong></p>
+                    Este valor nos servirá ya qué será nuestro intervalo.</li>
+                    <li><strong>Paso 4:</strong>
+                        <table>
+                            <tr>
+                                <th>No. SUBRED</th>  
+                                <th>ID_RED</th>   
+                                <th>IP_INICIAL</th>   
+                                <th>IP_FINAL</th>   
+                                <th>BROADCAST</th>                   
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>192.168.3.0</td>
+                                <td>192.168.3.1</td>
+                                <td>192.168.3.62</td>
+                                <td>192.168.3.63</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>192.168.3.64</td>
+                                <td>192.168.3.65</td>
+                                <td>192.168.3.126</td>
+                                <td>192.168.3.127</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>192.168.3.128</td>
+                                <td>192.168.3.129 </td>
+                                <td>192.168.3.190</td>
+                                <td>192.168.3.191</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>192.168.3.192</td>
+                                <td>192.168.3.193</td>
+                                <td>192.168.3.254</td>
+                                <td>192.168.3.255</td>
+                            </tr>
+                        </table>
+                        <p><strong>ID_RED</strong> Se suma el intervalo en el octeto siguiente libre</p>
+                        <p><strong>IP_INICIAL</strong> Se suma 1 al ID_RED de la misma línea</p>
+                        <p><strong>IP_FINAL</strong> Se resta 1 al valor del broadcas de la misma línea</p>
+                        <p><strong>BROADCAST</strong>  Se retoma el valor de la siguiente ID_RED y se resta 1</p>
+                    </li>
+                    <li><strong>Paso 5:</strong> Ahora se define la cantidad de host por subred, eso se calcula con la fórmula:
+                        <table>
+                            <tr>
+                                <td>2m-2</td>
+                            </tr>
+                        </table>
+                    <p>m corresponde a la cantidad de ceros que quedaron en la máscara de subred</p>
+                    <table>
+                        <tr>
+                            <td>11111111.11111111.11111111.11000000</td>
+                        </tr>
+                    </table>
+                    <p>Hay 6 ceros, por ende: <strong>26-2=62</strong> Osea que hay 62 hots por subred.</p>
+                     </li>
+                </ul>
+            </article>
+        </section>
+        <section id="Subred">
+            <article>
+            <h2>Determinar a que subred pertenece una direccion IP</h2>
+            <div class="Luffy">
+                <p class="Kuma">Ejemplo a utilizar: 165.56.90.223/19 </p>
+                <ul>
+                    <li><strong>Paso 1:</strong>  Convierte a binario ambos y realiza un AND lógico entre ellos</li>
+                    <table>
+                        <tr>
+                            <td>IP</td>
+                            <td>10100101.00111000.01011010.11011111</td>
+                        </tr>
+                        <tr>
+                            <td>Mascara De Subred</td>
+                            <td>11111111.11111111.11100000.00000000</td>
+                        </tr>
+                        <tr>
+                            <td>AND</td>
+                            <td>10100101.00111000.01000000.00000000</td>
+                        </tr>
+                    </table>
+                    <li><strong>Paso 2:</strong> Convierte a decimal</li>
+                    <table>
+                        <tr>
+                            <th>Numero en Binario</th>
+                            <th>Direccion IP</th>                   
+                        </tr>
+                        <tr>
+                            <td>10100101.00111000.01000000.00000000</td>
+                            <td>165.56.64.0</td>
+                        </tr>
+                    </table>
+                    <li><strong>Comprobacion:</strong> 165 indica que es clase B osea que debe tener 16 bits activos en la máscara de subred ya que le corresponde 255.255.0.0, sin embargo tiene 19, por ende se esta robando 3 bits y 11100000 nos da como resultado en decimal de 224.    
+                    <p><strong>256-224= 32</strong></p>.Así que nuestro intervalo es de 32 </li>
+                    <table>
+                        <tr>
+                            <th>No. SUBRED</th>  
+                            <th>ID_RED</th>   
+                            <th>IP_INICIAL</th>   
+                            <th>IP_FINAL</th>   
+                            <th>BROADCAST</th>                   
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>165.56.0.0</td>
+                            <td>165.56.0.1</td>
+                            <td>165.56.31.254</td>
+                            <td>165.56.31.255</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>165.56.32.0</td>
+                            <td>165.56.32.1</td>
+                            <td>165.56.63.254</td>
+                            <td>165.56.63.255</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>165.56.64.0</td>
+                            <td>165.56.64.1</td>
+                            <td>165.56.95.254</td>
+                            <td>165.56.95.255</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>165.56.96.0</td>
+                            <td>165.56.96.1</td>
+                            <td>165.56.127.254</td>
+                            <td>165.56.127.255</td>
+                        </tr>
+                    </table>
+                    <p>Verifica y la IP 165.56.90.223 esta dentro del intervalo de la tercer subred la cual es 165.56.64.0 hasta 165.56.95.255</p>
+                </ul>
+            <p class="Kuma"></p>
+            </div>
+        </article>
+        </section>
+        <section id="Direccion-IP">
+            <article>
+            <h2>Determinar cual es la direccion IP que le corresponde a un numero de hosts en específico</h2>
+            <div class="Rosinante">
+                <p class="Law">Ejemplo a utilizar: "Conocer que IP le corresponde al host número 332 en la red 140.4.0.0" </p>
+                <ul>
+                    <li><strong>Paso 1:</strong> Convertir a binario el número solicitado en este caso 332</li>
+                    <li><strong>Paso 2:</strong> o se debe dividir el número entre 2 hasta que ya no se pueda y los residuos de la división determinarán el binario</li>
+                    <table>
+                        <tr>
+                            <th>Numero en Binario</th>                   
+                        </tr>
+                        <tr>
+                            <td> 101001100</td>
+                        </tr>
+                    </table>
+                    <li><strong>Paso 3:</strong>  Es clase B, por ende 140.4 no los tocamos, nos faltan dos octetos y los llenaremos con el valor obtenido, en este caso:
+                        <table>
+                            <tr>
+                                <th>Numero en Binario</th>                   
+                            </tr>
+                            <tr>
+                                <td>140.4.00000001.01001100</td>
+                            </tr>
+                        </table>
+                        <p>Se debe tener en cuenta que se relleno con ceros, para obtener los 16 bits</p></li>
+                    <li><strong>Paso 4:</strong>Convertimos a decimal:
+                        <table>
+                            <tr>
+                                <th>Numero en Binario</th>
+                                <th>Direccion IP</th>                  
+                            </tr>
+                            <tr>
+                                <td>140.4.00000001.01001100</td>
+                                <td>140.4.1.76</td>
+                            </tr>
+                        </table>
+                        <p>Así que el host 332 en la red 140.4.0.0 le corresponde la IP 140.4.1.76</p></li>
+                </ul>
+            </div>
+        </article>
+        </section>
+        <aside>
+            <section id="Adicional">
+                <article>
+                    <h3>Recursos adicionales</h3>
+                    <div class="Robin">
+                        <ul>
+                            <li>
+                                <iframe width="300" height="300" src="https://www.youtube.com/embed/eBzTdjeW5q8?si=TNfbvLK1UMqZZ1fx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </li>
+                            <li>
+                                <iframe width="300" height="300" src="https://www.youtube.com/embed/t-MgKhKbEq8?si=SrP2T-LgTXL1WV24" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </li>
+                            <li>
+                                <iframe width="300" height="300" src="https://www.youtube.com/embed/YXLTByTPBkQ?si=cyYMNDgNZGC_hW0n" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </li>
+                        </ul>
+                    </div>
+                </article>
+            </section>
+        </aside>
+ <div class="Yamato">
+        <footer>
+            <p>&copy; 2025 Subneteo</p>
+            <p class="Katakuri">2025 A.A Todos los derechos reservados</p>
+        </footer>
+    </main>
+</div>
+</body>
+</html>

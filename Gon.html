@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Subneteo Dinámico</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body { font-family: Arial, sans-serif; }
+    h1 {
+      text-shadow: 2px 2px 2px blue;
+      font-family: Georgia, serif;
+      font-size: 35px;
+      color: cornflowerblue;
+      background-color: yellow;
+      text-align: center;
+    }
+    form {
+      background-color: pink;
+      padding: 20px;
+      border-radius: 20px;
+      text-align: center;
+    }
+    input {
+      font-size: 15px;
+      background-color: cyan;
+      margin: 5px;
+    }
+    label {
+      font-size: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      padding: 8px;
+      border: 1px solid #ddd;
+      text-align: center;
+    }
+    th {
+      background-color: #4CAF50;
+      color: white;
+    }
+    nav {
+      background-color: #3a3434;
+      text-align: center;
+      padding: 10px 0;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .error {
+      color: red;
+      font-weight: bold;
+    }
+    .output {
+      background-color: #f4f4f4;
+      border: 2px solid #4CAF50;
+      padding: 15px;
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Direcciones IP (SUBNETEO)</h1>
+  <nav><a href="index.html">De vuelta al inicio :)</a></nav>
+  <form id="subnetForm">
+    <label>Dirección IP:</label>
+    <input type="number" name="oc1" required> .
+    <input type="number" name="oc2" required> .
+    <input type="number" name="oc3" required> .
+    <input type="number" name="oc4" required><br><br>
+    <label><strong>No. Subredes:</strong></label>
+    <input type="number" name="ns" required><br><br>
+    <input type="submit" value="Enviar">
+  </form>
+
+  <div id="resultado"></div>
+
+  <script>
+    document.getElementById('subnetForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const oc1 = parseInt(this.oc1.value);
+      const oc2 = parseInt(this.oc2.value);
+      const oc3 = parseInt(this.oc3.value);
+      const oc4 = parseInt(this.oc4.value);
+      const NSubredes = parseInt(this.ns.value);
+      const resultado = document.getElementById('resultado');
+      resultado.innerHTML = '';
+
+      if ([oc1, oc2, oc3, oc4].some(n => n < 0 || n > 255)) {
+        resultado.innerHTML = "<div class='error'>Error: Octetos fuera del rango – 0 a 255.</div>";
+        return;
+      }
+
+      if (oc1 === 127) {
+        resultado.innerHTML = "<div class='error'>Error: Dirección loopback no válida.</div>";
+        return;
+      }
+
+      if (oc1 >= 224) {
+        resultado.innerHTML = "<div class='error'>Error: Clase D o E no se puede subnetear.</div>";
+        return;
+      }
+
+      let clase, mascaraBase;
+      if (oc1 >= 1 && oc1 <= 126) {
+        clase = "Clase A";
+        mascaraBase = 8;
+      } else if (oc1 >= 128 && oc1 <= 191) {
+        clase = "Clase B";
+        mascaraBase = 16;
+      } else {
+        clase = "Clase C";
+        mascaraBase = 24;
+      }
+
+      const bits = Math.ceil(Math.log2(NSubredes));
+      const nuevaMascara = mascaraBase + bits;
+
+      const bloques = 2 ** (32 - nuevaMascara);
+      const incremento = bloques;
+      const totalHosts = bloques - 2;
+
+      let html = `<div class="output">
+        <p><strong>Dirección IP Base:</strong> ${oc1}.${oc2}.${oc3}.${oc4}</p>
+        <p><strong>Clase de la IP:</strong> ${clase}</p>
+        <p><strong>Máscara resultante:</strong> /${nuevaMascara}</p>
+        <p><strong>Número de hosts por subred:</strong> ${totalHosts}</p>
+        <table>
+          <tr><th>No. Red</th><th>Id. Red</th><th>IP Inicial</th><th>IP Final</th><th>Broadcast</th></tr>`;
+
+      for (let i = 0; i < NSubredes; i++) {
+        let base = i * incremento;
+        let red = base;
+        let inicio = base + 1;
+        let fin = base + bloques - 2;
+        let bcast = base + bloques - 1;
+
+        const redIP = `${oc1}.${oc2}.${Math.floor(red / 256)}.${red % 256}`;
+        const iniIP = `${oc1}.${oc2}.${Math.floor(inicio / 256)}.${inicio % 256}`;
+        const finIP = `${oc1}.${oc2}.${Math.floor(fin / 256)}.${fin % 256}`;
+        const bcastIP = `${oc1}.${oc2}.${Math.floor(bcast / 256)}.${bcast % 256}`;
+
+        html += `
+          <tr style="background-color: ${i % 2 === 0 ? '#f2f2f2' : '#ffffff'}">
+            <td>${i + 1}</td>
+            <td>${redIP}</td>
+            <td>${iniIP}</td>
+            <td>${finIP}</td>
+            <td>${bcastIP}</td>
+          </tr>`;
+      }
+
+      html += "</table></div>";
+      resultado.innerHTML = html;
+    });
+  </script>
+</body>
+</html>
